@@ -1,0 +1,16 @@
+.pet-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+.pet-list-item {
+    margin-right: 20px;
+    text-align: center;
+}
+.pet-list-item img {
+    width: 100%;
+    max-width: 100px;
+}
+.pet-list-item span {
+    display: block;
+}

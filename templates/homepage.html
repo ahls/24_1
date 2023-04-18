@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block bodyBlock %}
+<h1>Paw</h1>
+<div class="pet-list">
+
+    {% for pet in pets %}
+    <div class="pet-list-item">
+        
+        <a href="/pets/{{pet.id}}">
+            {% if pet.photo_url != "": %}
+            <img src="{{pet.photo_url}}" alt="pet's image">
+            {% endif %}
+            <span>
+                {{pet.name}} <br>
+                {%if pet.available %} 
+                <span class="badge text-bg-success">
+                    can be adopted! 
+                </span>
+                {% else %}
+                <span class="badge text-bg-secondary">
+                    adopted! 
+                </span>
+                {%endif%}
+            </span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<a class="btn btn-primary" href="/add">Add Pet</a>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block bodyBlock %}
+<h1>List a new Pet</h1>
+{% for fieldName, msg in form.errors.items() %}
+<p>{{fieldName}} error: {{msg}}</p>
+{% endfor %}
+<form action="/add" method="post">
+    {{ form.hidden_tag()}}
+    {% for field in form
+        if field.widget.input_type != 'hidden' %}
+        <p>
+            {{field.label}}
+            {{field}}
+        </p>
+        
+        {% endfor %}
+        <input type="submit" value="submit">
+    </form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block bodyBlock %}
+{% if pet.photo_url != "": %}
+<img style="width:100%; max-width: 300px;" src="{{pet.photo_url}}" alt="pet's image">
+{% endif %}
+<h1>{{pet.name}}</h1>
+({%if pet.age!=None%}{{pet.age}} yrs old {%endif%}{{pet.species}})</h2>
+<br>
+
+    {%if pet.available %} 
+    <span class="badge text-bg-success">
+        can be adopted! 
+    </span>
+    {% else %}
+    <span class="badge text-bg-secondary">
+        adopted! 
+    </span>
+    {%endif%}
+<br>
+<a class="btn btn-primary" href="/pets/{{pet.id}}/edit">Edit</a>
+{% endblock %}
